@@ -7,6 +7,7 @@ import org.apache.logging.log4j.Logger;
 import org.hibernate.HibernateException;
 
 import com.app.factory.LoginDAO;
+import com.app.factory.beans.UserDescription;
 import com.app.security.HashService;
 
 /**
@@ -43,6 +44,10 @@ public class LoginService {
 			logger.debug("Exception caught in LoginService.validateLogin.\n" + ex);
 		}
 		return false;
+	}
+	
+	public UserDescription getUserDetails(String username) {
+		return null;
 	}
 	
 }
