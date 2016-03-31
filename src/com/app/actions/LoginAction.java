@@ -47,6 +47,11 @@ public class LoginAction {
 	public String login() {
 		logger.trace("Entering execute method");
 		
+		Map<String,Object> session = ActionContext.getContext().getSession();
+		if(session.get(ApplicationConstants.LOGGED_IN_KEY)!=null && session.get(ApplicationConstants.LOGGED_IN_KEY).equals("true")) {
+			return ApplicationConstants.SUCCESS_FORWARD;
+		}
+		
 		LoginService service = new LoginService();
 		boolean verifyCredentials = service.validateLogin(username, password);
 		
@@ -56,7 +61,6 @@ public class LoginAction {
 			return ApplicationConstants.FAILURE_FORWARD;
 		}		
 		
-		Map<String,Object> session = ActionContext.getContext().getSession();
 		session.put(ApplicationConstants.LOGGED_IN_KEY, "true");
 		
 		return ApplicationConstants.SUCCESS_FORWARD;
