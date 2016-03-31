@@ -36,8 +36,8 @@ public class LoginService {
 			}
 			
 			String hashPassword = HashService.sha256Hash(password + salt);
-			System.out.println(hashPassword.length());
-			System.out.println(salt.length());
+			/*System.out.println(hashPassword.length());
+			System.out.println(salt.length());*/
 			
 			return dbUserLogin.login(hashPassword);
 		} catch(HibernateException | NullPointerException | NoSuchAlgorithmException ex) {

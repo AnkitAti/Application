@@ -4,11 +4,11 @@
 	<constant name="struts.devMode" value="true" />
    	<package name="login" extends="struts-default">
       <action name="login" class="com.app.actions.LoginAction" method="login">
-            <result name="success">user/ex.jsp</result>
+            <result name="success">user/home.jsp</result>
             <result name="failure">login.jsp</result>
       </action>
       <action name="signup" class="com.app.actions.SignupAction" method="signup">
-      	<result name="success">user/ex.jsp</result>
+      	<result name="success">user/home.jsp</result>
       	<result name="failure">login.jsp</result>
       </action>
    </package>
